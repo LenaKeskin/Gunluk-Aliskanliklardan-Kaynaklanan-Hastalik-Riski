@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>PowerShell Web Arayüzü</title>
+    <style>
+        body { font-family: system-ui, sans-serif; background-color: #f0f2f5; color: #1c1e21; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { width: 90%; max-width: 700px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { font-size: 1.5rem; color: #0056b3; margin-bottom: 1.5rem; }
+        textarea { width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: monospace; font-size: 1rem; margin-bottom: 1rem; resize: vertical; }
+        button { width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: background-color 0.2s; }
+        button:hover { background-color: #0056b3; }
+        #output { background-color: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 6px; white-space: pre-wrap; word-wrap: break-word; font-family: monospace; min-height: 100px; margin-top: 1.5rem; overflow-x: auto; }
+        #output.error { color: #f48771; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PowerShell Komut Çalıştırıcı</h1>
+        <form id="commandForm">
+            <textarea id="commandInput" name="command" rows="5" placeholder="Örn: Get-Service -Name 'WinRM'
+Örn: Get-Process | Sort-Object CPU -Descending | Select-Object -First 5"></textarea>
+            <button type="submit">Çalıştır</button>
+        </form>
+        <pre id="output">Çıktı burada görünecek...</pre>
+    </div>
+
+    <script>
+        const form = document.getElementById('commandForm');
+        const commandInput = document.getElementById('commandInput');
+        const outputDiv = document.getElementById('output');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
+            outputDiv.textContent = 'Komut çalıştırılıyor, lütfen bekleyin...';
+            outputDiv.classList.remove('error');
+
+            const formData = new FormData();
+            formData.append('command', commandInput.value);
+
+            try {
+                const response = await fetch('/execute', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+
+                outputDiv.textContent = result.output; // Çıktıyı göster
+                if (!result.success) {
+                    outputDiv.classList.add('error'); // Başarısız ise hata rengi ekle
+                }
+
+            } catch (err) {
+                outputDiv.textContent = 'Sunucuya bağlanırken bir hata oluştu: ' + err;
+                outputDiv.classList.add('error');
+            }
+        });
+    </script>
+</body>
+</html>

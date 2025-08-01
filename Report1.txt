@@ -1,0 +1,53 @@
+The execution was successful
+
+- Initializing Data Flow Task (Success)
+
+- Initializing Connections (Success)
+
+- Setting SQL Command (Success)
+
+- Setting Source Connection (Success)
+
+- Setting Destination Connection (Success)
+
+- Validating (Success)
+	Messages
+	* Warning 0x80049304: Data Flow Task 1: Warning: Could not open global shared memory to communicate with performance DLL; data flow performance counters are not available.  To resolve, run this package as an administrator, or on the system's console.
+	 (SQL Server Import and Export Wizard)
+	
+
+- Prepare for Execute (Success)
+
+- Pre-execute (Success)
+	Messages
+	* Information 0x402090dc: Data Flow Task 1: The processing of file "C:\Users\Lenovo\Downloads\health_lifestyle_classification.csv" has started.
+	 (SQL Server Import and Export Wizard)
+	
+
+- Executing (Success)
+
+- Copying to [dbo].[health_lifestyle_classification] (Success)
+	* 100000 rows transferred
+
+	Messages
+	* Information 0x402090de: Data Flow Task 1: The total number of data rows processed for file "C:\Users\Lenovo\Downloads\health_lifestyle_classification.csv" is 100001.
+	 (SQL Server Import and Export Wizard)
+	
+	* Information 0x402090df: Data Flow Task 1: The final commit for the data insertion in "Destination - health_lifestyle_classification" has started.
+	 (SQL Server Import and Export Wizard)
+	
+	* Information 0x402090e0: Data Flow Task 1: The final commit for the data insertion  in "Destination - health_lifestyle_classification" has ended.
+	 (SQL Server Import and Export Wizard)
+	
+
+- Post-execute (Success)
+	Messages
+	* Information 0x402090dd: Data Flow Task 1: The processing of file "C:\Users\Lenovo\Downloads\health_lifestyle_classification.csv" has ended.
+	 (SQL Server Import and Export Wizard)
+	
+	* Information 0x4004300b: Data Flow Task 1: "Destination - health_lifestyle_classification" wrote 100000 rows.
+	 (SQL Server Import and Export Wizard)
+	
+
+
+
