@@ -1,6 +1,5 @@
-# flask-docker-projem
+# # Günlük Alışkanlıklardan Kaynaklanan Hastalık Riski Analizi
 Günlük Alışkanlıklardan Kaynaklanan Hastalık Riski projesini 2 kişilik takım olarak yapmış bulunmaktayız.
-# Günlük Alışkanlıklardan Kaynaklanan Hastalık Riski Analizi
 
 Bu proje, bireylerin günlük yaşam alışkanlıklarının sağlık üzerindeki etkilerini analiz ederek, potansiyel hastalık risklerini tahmin etmeyi amaçlamaktadır. Veri seti Kaggle üzerinden temin edilmiştir ve proje içerisinde veri analizi, makine öğrenmesi, görselleştirme, otomasyon, web arayüzü, PDF raporlama ve konteynerleştirme gibi çeşitli bileşenler barındırmaktadır.
 
@@ -39,5 +38,5 @@ Bu proje, bireylerin günlük yaşam alışkanlıklarının sağlık üzerindeki
 ├── powerbi/
 │   └── analysis.pbix       # Power BI görselleştirmeleri
 ├── README.md               # Bu dosya
-Web Arayüzü
+## WEB ARAYÜZÜ
 Web arayüzüne http://localhost:5000 adresinden erişilebilir.
